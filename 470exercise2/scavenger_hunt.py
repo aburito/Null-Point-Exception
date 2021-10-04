@@ -77,9 +77,9 @@ def plot_waveforms(LA, RV, RA, TL, TR):
         plt.savefig('graphs/Instance ' + str(i + 1) + '.png')
         plt.close()
 
-def plot_scatterplot(LA, RV, RA):
 
-    plt.scatter(LA[:,0], RV[:,0])
+def plot_scatterplot(LA, RV, RA):
+    plt.scatter(LA[:, 0], RV[:, 0])
     plt.xlabel('Linear Acceleration (g)')
     plt.ylabel('Rotational Velocity (rad/sec)')
     plt.title('Linear Acceleration (g) vs. Rotational Velocity (rad/sec)')
@@ -87,7 +87,7 @@ def plot_scatterplot(LA, RV, RA):
     plt.close()
     print('\ngraphs/Linear Acceleration vs. Rotational Velocity.png printed \n')
 
-    plt.scatter(LA[:,0], RA[:,0])
+    plt.scatter(LA[:, 0], RA[:, 0])
     plt.xlabel('Linear Acceleration (g)')
     plt.ylabel('Rotational Acceleration (rad/sec^2)')
     plt.title('Linear Acceleration (g) vs. Rotational Acceleration (rad/sec^2)')
@@ -95,15 +95,13 @@ def plot_scatterplot(LA, RV, RA):
     plt.close()
     print('graphs/Linear Acceleration vs. Rotational Acceleration.png printed\n')
 
-    plt.scatter(RV[:,0], RA[:,0])
+    plt.scatter(RV[:, 0], RA[:, 0])
     plt.xlabel('Rotational Velocity (rad/sec)')
     plt.ylabel('Rotational Acceleration (rad/sec^2)')
     plt.title('Rotational Velocity (rad/sec) vs. Rotational Acceleration (rad/sec^2)')
     plt.savefig('graphs/Rotational Velocity vs. Rotational Acceleration.png')
     plt.close()
     print('graphs/Rotational Velocity vs. Rotational Acceleration.png printed')
-
-
 
 
 # make empty data and time Lists
@@ -123,7 +121,7 @@ RA = np.array(RA_list)
 TL = np.array(TL_list[0])
 TR = np.array(TR_list[0])
 # plot_waveforms(LA, RV, RA, TL, TR)
-plot_scatterplot(LA,RV,RA)
+plot_scatterplot(LA, RV, RA)
 
 minLA = []
 avgLA = []
@@ -149,9 +147,6 @@ for i in range(0, 65):
     minRA.append(np.min(RA[i]))
     avgRA.append(np.mean(RA[i]))
     maxRA.append(np.max(RA[i]))
-
-
-
 
 MLA = np.array(minLA)
 ALA = np.array(avgLA)
