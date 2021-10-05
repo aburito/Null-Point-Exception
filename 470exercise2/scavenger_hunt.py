@@ -78,8 +78,8 @@ def plot_waveforms(LA, RV, RA, TL, TR):
         plt.close()
 
 
-def plot_scatterplot(LA, RV, RA):
-    plt.scatter(LA[:, 0], RV[:, 0])
+def plot_scatterplot(PLA, PRV, PRA):
+    plt.scatter(PLA, PRV)
     plt.xlabel('Linear Acceleration (g)')
     plt.ylabel('Rotational Velocity (rad/sec)')
     plt.title('Linear Acceleration (g) vs. Rotational Velocity (rad/sec)')
@@ -87,7 +87,7 @@ def plot_scatterplot(LA, RV, RA):
     plt.close()
     print('\ngraphs/Linear Acceleration vs. Rotational Velocity.png printed \n')
 
-    plt.scatter(LA[:, 0], RA[:, 0])
+    plt.scatter(PLA, PRA)
     plt.xlabel('Linear Acceleration (g)')
     plt.ylabel('Rotational Acceleration (rad/sec^2)')
     plt.title('Linear Acceleration (g) vs. Rotational Acceleration (rad/sec^2)')
@@ -95,7 +95,7 @@ def plot_scatterplot(LA, RV, RA):
     plt.close()
     print('graphs/Linear Acceleration vs. Rotational Acceleration.png printed\n')
 
-    plt.scatter(RV[:, 0], RA[:, 0])
+    plt.scatter(PRV, PRA)
     plt.xlabel('Rotational Velocity (rad/sec)')
     plt.ylabel('Rotational Acceleration (rad/sec^2)')
     plt.title('Rotational Velocity (rad/sec) vs. Rotational Acceleration (rad/sec^2)')
@@ -103,6 +103,13 @@ def plot_scatterplot(LA, RV, RA):
     plt.close()
     print('graphs/Rotational Velocity vs. Rotational Acceleration.png printed')
 
+def plot_rot_accel(RA):
+    for i in range(0,65):
+        instances.append(i)
+    plt.xlabel('Instance')
+    plt.ylabel('Rotational Acceleration (rad/sec^2)')
+    plt.title('Average Rotational Acceleration')
+    plt.savefig('graphs/Average Rotational Acceleration.png')
 
 # make empty data and time Lists
 LA_list = []
@@ -110,6 +117,7 @@ RV_list = []
 RA_list = []
 TL_list = []
 TR_list = []
+instances = []
 
 read_waveforms(LA_list, RV_list, RA_list)
 read_times(TL_list, TR_list)
@@ -121,7 +129,8 @@ RA = np.array(RA_list)
 TL = np.array(TL_list[0])
 TR = np.array(TR_list[0])
 # plot_waveforms(LA, RV, RA, TL, TR)
-plot_scatterplot(LA, RV, RA)
+
+plot_rot_accel(RA)
 
 minLA = []
 avgLA = []
@@ -159,6 +168,8 @@ PRV = np.array(maxRV)
 MRA = np.array(minRA)
 ARA = np.array(avgRA)
 PRA = np.array(maxRA)
+
+plot_scatterplot(PLA, PRV, PRA)
 
 print('MLA: min: ' + str(np.min(MLA)) + ', max: ' + str(np.max(MLA)) + ', avg: ' + str(np.mean(MLA)))
 print('ALA: min: ' + str(np.min(ALA)) + ', max: ' + str(np.max(ALA)) + ', avg: ' + str(np.mean(ALA)))
