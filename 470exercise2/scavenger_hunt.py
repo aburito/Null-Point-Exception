@@ -130,7 +130,7 @@ TL = np.array(TL_list[0])
 TR = np.array(TR_list[0])
 # plot_waveforms(LA, RV, RA, TL, TR)
 
-plot_rot_accel(RA)
+# plot_rot_accel(RA)
 
 minLA = []
 avgLA = []
@@ -169,16 +169,48 @@ MRA = np.array(minRA)
 ARA = np.array(avgRA)
 PRA = np.array(maxRA)
 
-plot_scatterplot(PLA, PRV, PRA)
+# plot_scatterplot(PLA, PRV, PRA)
+#
+# print('MLA: min: ' + str(np.min(MLA)) + ', max: ' + str(np.max(MLA)) + ', avg: ' + str(np.mean(MLA)))
+# print('ALA: min: ' + str(np.min(ALA)) + ', max: ' + str(np.max(ALA)) + ', avg: ' + str(np.mean(ALA)))
+# print('PLA: min: ' + str(np.min(PLA)) + ', max: ' + str(np.max(PLA)) + ', avg: ' + str(np.mean(PLA)) + '\n')
+#
+# print('MLA: min: ' + str(np.min(MRV)) + ', max: ' + str(np.max(MRV)) + ', avg: ' + str(np.mean(MRV)))
+# print('ARV: min: ' + str(np.min(ARV)) + ', max: ' + str(np.max(ARV)) + ', avg: ' + str(np.mean(ARV)))
+# print('PRV: min: ' + str(np.min(PRV)) + ', max: ' + str(np.max(PRV)) + ', avg: ' + str(np.mean(PRV)) + '\n')
+#
+# print('MRA: min: ' + str(np.min(MRA)) + ', max: ' + str(np.max(MRA)) + ', avg: ' + str(np.mean(MRA)))
+# print('ARA: min: ' + str(np.min(ARA)) + ', max: ' + str(np.max(ARA)) + ', avg: ' + str(np.mean(ARA)))
+# print('PRA: min: ' + str(np.min(PRA)) + ', max: ' + str(np.max(PRA)) + ', avg: ' + str(np.mean(PRA)))
+bigMaxLA = maxLA
+bigMaxRA = maxRA
+bigMaxRV = maxRV
 
-print('MLA: min: ' + str(np.min(MLA)) + ', max: ' + str(np.max(MLA)) + ', avg: ' + str(np.mean(MLA)))
-print('ALA: min: ' + str(np.min(ALA)) + ', max: ' + str(np.max(ALA)) + ', avg: ' + str(np.mean(ALA)))
-print('PLA: min: ' + str(np.min(PLA)) + ', max: ' + str(np.max(PLA)) + ', avg: ' + str(np.mean(PLA)) + '\n')
+bigMaxLA.sort()
+bigMaxLA = bigMaxLA[-5:]
 
-print('MLA: min: ' + str(np.min(MRV)) + ', max: ' + str(np.max(MRV)) + ', avg: ' + str(np.mean(MRV)))
-print('ARV: min: ' + str(np.min(ARV)) + ', max: ' + str(np.max(ARV)) + ', avg: ' + str(np.mean(ARV)))
-print('PRV: min: ' + str(np.min(PRV)) + ', max: ' + str(np.max(PRV)) + ', avg: ' + str(np.mean(PRV)) + '\n')
+for i in LA:
+    if i == bigMaxLA[0]:
+        print(i)
+    elif i == bigMaxLA[1]:
+        print(i)
+    elif i == bigMaxLA[2]:
+        print(i)
+    elif i == bigMaxLA[3]:
+        print(i)
+    elif i == bigMaxLA[4]:
+        print(i)
+# for i in
 
-print('MRA: min: ' + str(np.min(MRA)) + ', max: ' + str(np.max(MRA)) + ', avg: ' + str(np.mean(MRA)))
-print('ARA: min: ' + str(np.min(ARA)) + ', max: ' + str(np.max(ARA)) + ', avg: ' + str(np.mean(ARA)))
-print('PRA: min: ' + str(np.min(PRA)) + ', max: ' + str(np.max(PRA)) + ', avg: ' + str(np.mean(PRA)))
+
+# for k in LA:
+#     for i in bigMaxLA:
+#         if i == k:
+#             # print(i)
+#             print(LA.index(k))
+
+bigMaxRA.sort()
+# print(bigMaxRA[-5:])
+
+bigMaxRV.sort()
+# print(bigMaxRV[-5:])
